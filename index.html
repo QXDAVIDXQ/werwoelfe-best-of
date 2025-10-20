@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🐺 Werwölfe – Best of (Regelkonform)</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1><i class="fas fa-moon"></i> Werwölfe von Düsterwald – Best of</h1>
+      <p>Offizielle Regeln • Spielerzahl: 6–48</p>
+    </header>
+
+    <!-- SETUP -->
+    <div id="phase-setup" class="phase active">
+      <div class="card">
+        <h2><i class="fas fa-users"></i> 1. Spielerzahl (6–48)</h2>
+        <input type="number" id="spielerzahl" min="6" max="48" value="8" />
+      </div>
+
+      <div class="card">
+        <h2><i class="fas fa-user-tag"></i> 2. Namen eingeben</h2>
+        <div id="namen-liste"></div>
+      </div>
+
+      <div class="card">
+        <h2><i class="fas fa-theater-masks"></i> 3. Rollen auswählen</h2>
+        <label><input type="checkbox" id="neumond-aktiv"> Neumond-Erweiterung aktivieren</label>
+        <p><strong>Gesamt:</strong> <span id="gesamt">0</span> / <span id="ziel">8</span></p>
+        <div id="rollen-buttons"></div>
+      </div>
+
+      <button id="btn-start" disabled>
+        <i class="fas fa-play"></i> Spiel starten
+      </button>
+    </div>
+
+    <!-- ROLLEN VERTEILEN -->
+    <div id="phase-rollen" class="phase">
+      <div class="card">
+        <h2 id="rolle-titel">Deine Rolle</h2>
+        <div id="rolle-inhalt"></div>
+        <button id="btn-rolle-weiter" class="hidden success">
+          <i class="fas fa-arrow-right"></i> Weiter
+        </button>
+      </div>
+    </div>
+
+    <!-- SEHERIN SPEZIALANSICHT -->
+    <div id="phase-seherin" class="phase">
+      <div class="card">
+        <div class="seherin-view">
+          <h2><i class="fas fa-eyes"></i> Die Seherin</h2>
+          <p id="seherin-text">Lädt...</p>
+          <button id="btn-seherin-weiter" class="success">
+            <i class="fas fa-arrow-right"></i> Weiter
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- SPIEL -->
+    <div id="phase-spiel" class="phase">
+      <div class="card">
+        <h2 id="spiel-titel">Nacht 1</h2>
+        <div id="spiel-inhalt"></div>
+        <button id="btn-spiel-weiter" class="hidden">
+          <i class="fas fa-arrow-right"></i> Weiter
+        </button>
+      </div>
+
+      <div class="card">
+        <h2><i class="fas fa-heart"></i> Lebende Spieler</h2>
+        <div id="lebende-liste" class="spieler-grid"></div>
+      </div>
+
+      <div class="card">
+        <h2><i class="fas fa-skull"></i> Tote Spieler</h2>
+        <div id="tote-liste" class="spieler-grid"></div>
+      </div>
+
+      <div class="spielleiter-toggle">
+        <button id="btn-spielleiter" class="secondary">
+          <i class="fas fa-user-secret"></i> Spielleiter-Ansicht
+        </button>
+      </div>
+      <div id="spielleiter-panel" class="spielleiter-panel hidden"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
